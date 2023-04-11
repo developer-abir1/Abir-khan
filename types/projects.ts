@@ -7,6 +7,7 @@ export type Projects =  {
     slug: string;
     image: string;
     url: string;
+    tags: string[];
     content: PortableTextBlock[];
 
     
@@ -20,3 +21,4 @@ export type Blog=  {
     url: string;
     content: PortableTextBlock[];
 }
+ 

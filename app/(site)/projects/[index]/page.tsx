@@ -1,16 +1,17 @@
 import { getProject } from "@/sanity/sanity.schema-utils";
 import React from "react";
-import { PortableText } from "@portabletext/react";
-import Image from "next/image";
+ import Image from "next/image";
+ import {PortableText} from '@portabletext/react'
 
 type Props = {
   params: { index: string };
 };
 
+
 async function SingleProjects({ params }: Props) {
   const slug = params.index;
-  const project = await getProject(slug);
- 
+  const project = await getProject(slug); 
+  
   return (
     <section className=" max-w-3xl mx-auto py-20">
       <header className=" flex justify-between items-center">
@@ -22,11 +23,12 @@ async function SingleProjects({ params }: Props) {
       </header>
 
       <div>
-        <PortableText value={project.content} />
+        <PortableText value={project.content}   />
       </div>
       <div>
         <Image src={project.image} alt={project.name} width={900} height={500} />
       </div>
+     
     </section>
   );
 }

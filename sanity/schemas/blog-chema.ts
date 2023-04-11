@@ -1,44 +1,43 @@
-
-const blog =  {
-    name: 'blog',
-    title: 'Blog',
-    type: 'document',
-    fields: [
+const blog = {
+  name: "blog",
+  title: "Blog",
+  type: "document",
+  fields: [
+    {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title" },
+    },
+    {
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: { hotspot: true },
+      field: [
         {
-            name: 'title',
-            title: 'Title',
-            type: 'string'
+          name: "alt",
+          title: "Alt",
+          type: "string",
         },
-        {
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: { source: 'title' }
-        },
-        {
-            name: 'image',
-            title: 'Image',
-            type: 'image',
-            options: { hotspot: true },
-            field: [
-                {
-                    name: 'alt',
-                    title: 'Alt',
-                    type: 'string'
-                }
-            ]
-        },
-        {
-            name: 'content',
-            title: 'Content',
-            type: 'array',
-            of: [{ type: 'block' }]
-
-        }
-    ]
-
-   
-
-
-}
+      ],
+    },
+    {
+      name: "url",
+      title: "URL",
+      type: "url",
+    },
+    {
+      name: "content",
+      title: "Content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+  ],
+};
 export default blog;

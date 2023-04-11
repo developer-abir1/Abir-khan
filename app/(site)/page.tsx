@@ -1,10 +1,10 @@
-import { getProjects } from "@/sanity/sanity.schema-utils";
-import { Projects } from "@/types/projects";
-import Image from "next/image";
+import {   getProjects } from "@/sanity/sanity.schema-utils";
+ import Image from "next/image";
 import Link from "next/link";
-
+ 
 export default async function Home() {
-  const projects: Projects[] = await getProjects();
+  const projects = await getProjects(); 
+ 
 
   return (
     <div className="max-w-5xl mx-auto py-20 ">
@@ -39,7 +39,7 @@ export default async function Home() {
                 className=" rounded-md"
               />
             )}
-            <h1 className="my-4 px-4 font-bold bg-gradient-to-r  from-orange-500  via-red-400 to-purple-600   bg-clip-text text-transparent ">
+            <h1 className="my-4 px-4 font-bold bg-gradient-to-r  from-orange-400  via-red-500 to-purple-600   bg-clip-text text-transparent ">
               {project.name}
             </h1>
           </Link>

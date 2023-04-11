@@ -1,16 +1,11 @@
-import {    Blog, Projects } from "@/types/projects";
+ import {    Blog,   Projects } from "@/types/projects";
 import { createClient, groq } from "next-sanity";
+import { clientConfig } from "./config/client-config";
 
 export function getProjects(): Promise<Projects[]> {
-  const client = createClient({
-    projectId: "f3cghhdg",
-    dataset: "production", 
+   
 
-    apiVersion: "2023-04-09",
-
-  });
-
-  return client.fetch(groq`*[_type == "project"]{
+  return createClient(clientConfig).fetch(groq`*[_type == "project"]{
         _id,
         _createdAt, 
         name,
@@ -23,15 +18,9 @@ export function getProjects(): Promise<Projects[]> {
 }
 
 export async function getProject(slug: string): Promise<Projects> {
-  const client = createClient({
-    projectId: "f3cghhdg",
-    dataset: "production", 
+  
 
-    apiVersion: "2023-04-09",
-
-  });
-
-  return client.fetch(groq`*[_type == "project" && slug.current == $slug][0]{
+  return createClient(clientConfig).fetch(groq`*[_type == "project" && slug.current == $slug][0]{
         _id,
         _createdAt, 
         name,
@@ -47,14 +36,9 @@ export async function getProject(slug: string): Promise<Projects> {
 
 
 export function getBlogs(): Promise<Blog[]> {
-  const client = createClient({
-    projectId: "f3cghhdg",
-    dataset: "production",  
-    apiVersion: "2023-04-09",
+ 
 
-  });
-
-  return client.fetch(groq`*[_type == "blog"]{
+  return createClient(clientConfig).fetch(groq`*[_type == "blog"]{
         _id,
         _createdAt, 
         title,
@@ -65,5 +49,5 @@ export function getBlogs(): Promise<Blog[]> {
         
     } `);
 }
-
+ 
   
